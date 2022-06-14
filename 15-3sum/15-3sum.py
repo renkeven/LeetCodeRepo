@@ -13,7 +13,7 @@ class Solution:
         
         for idx, i in enumerate(nums):
             if (idx > 1) and (nums[idx] == nums[idx - 1]): continue
-            p1 = 0
+            p1 = idx + 1
             p2 = len_nums - 1
             
             while p1 < p2 and p2 > 0 and p1 < len_nums:
