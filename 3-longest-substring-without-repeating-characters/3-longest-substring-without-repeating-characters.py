@@ -10,7 +10,7 @@ class Solution:
         if len(s) == 0:
             return 0
         
-        window_size = min(101, len(s))
+        window_size = min(95, len(s))
         
         def check_unique(inp):
             if len(inp) == len(set(inp)):
