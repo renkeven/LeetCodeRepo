@@ -1,28 +1,27 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        just guess how many total symbols there are:
-        ~40 according to google
+        improving on previous shit solution
+        start on character, expand window until you hit a duplicate. record dupe, start on next         char and go until you hit the end.
         
-        so 52 from alphabet, 10 from numbers, 1 from space, and let's say 38 symbols
+        tested with sets, looks like array is best
         """
         
-        if len(s) == 0:
-            return 0
+        if len(s) < 2:
+            return len(s)
+
+        max_win = 0
+        current_win = 0
+        running_set = []
         
-        window_size = min(95, len(s))
-        
-        def check_unique(inp):
-            if len(inp) == len(set(inp)):
-                return True
+        for i in s:
+            if i not in running_set:
+                running_set.append(i)
+                current_win += 1
             else:
-                return False
-        
-        while window_size > 1:
-            for i in range(len(s) + 1 - window_size):
-                if check_unique(s[i:i + window_size]):
-                    return window_size
-                
-            window_size -= 1
-                
-        return 1
+                max_win = max(max_win, current_win)
+                running_set.append(i)
+                running_set = running_set[running_set.index(i) + 1:]
+                current_win = len(running_set)
+                        
+        return max(current_win, max_win)
