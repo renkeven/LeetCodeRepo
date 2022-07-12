@@ -12,11 +12,11 @@ class Solution:
         
         while (l+1 < r):
             idx = (l + r)//2
-            if nums[idx] == target:
-                return idx
-            elif nums[idx] > target:
+            if nums[idx] > target:
                 r = idx     
-            else:
+            elif nums[idx] < target:
                 l = idx
+            else:
+                return idx
                 
         return -1
