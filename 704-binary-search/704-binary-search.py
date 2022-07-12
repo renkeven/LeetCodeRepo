@@ -4,18 +4,19 @@ class Solution:
         binary search, split in half, look left look right.
         """
         l = 0
-        r = len(nums)
+        r = len(nums) - 1
         idx = l
         
-        if len(nums) < 1: return -1
-        if nums[idx] == target: return idx
+        # if len(nums) < 1: return -1
+        # if nums[idx] == target: return idx
         
-        while (l+1 < r):
+        while (l <= r):
             idx = (l + r)//2
+            print(idx)
             if nums[idx] > target:
-                r = idx     
+                r = idx - 1
             elif nums[idx] < target:
-                l = idx
+                l = idx + 1
             else:
                 return idx
                 
