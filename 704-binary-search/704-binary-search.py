@@ -12,7 +12,6 @@ class Solution:
         
         while (l <= r):
             idx = (l + r)//2
-            print(idx)
             if nums[idx] > target:
                 r = idx - 1
             elif nums[idx] < target:
