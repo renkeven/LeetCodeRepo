@@ -16,5 +16,18 @@ class Solution:
                 hash_table.add(id(head))
                 
             head = head.next
+
+        # for _ in range(20):
+        #     print(id(head))
+        #     head = head.next
+          
+        # while head:
+        #     if id(head) >= id(head.next):
+        #         print(id(head), id(head.next), head.next)
+        #         if head.next == None:
+        #             return False
+        #         else:
+        #             return True
+        #     head = head.next
             
         return False
