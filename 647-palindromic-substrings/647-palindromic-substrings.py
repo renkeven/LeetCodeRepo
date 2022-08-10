@@ -9,27 +9,18 @@ class Solution:
             return True
         
         cache = set()
-        palin_arr = []
+        palin_len = 0
         max_len = len(s)
         
         for i in range(max_len):
             for j in range(max_len - i):
                 str_ = s[j:j+1+i]
-                # if str_ in cache:
-                #     continue
-                # else:
-                #     cache.add(str_)
-                #     if check_palin(str_) == True:
-                #         palin_arr.append(str_)
                 
                 if str_ in cache:
-                    palin_arr.append(str_)
+                    palin_len += 1
                 
                 elif check_palin(str_) == True:
-                    palin_arr.append(str_)
+                    palin_len += 1
                     cache.add(str_)
-                    
-    
-        #print(palin_arr)
-    
-        return len(palin_arr)
+                        
+        return palin_len
