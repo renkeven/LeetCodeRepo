@@ -9,17 +9,16 @@ class BSTIterator:
     def __init__(self, root: Optional[TreeNode]):
         self.inorder_arr = []
         self.inorderTree(root)
-        self.pointer = 0
+        self.pointer = -1
         
     def next(self) -> int:
+        self.pointer += 1
         if len(self.inorder_arr) > self.pointer:
-            val = self.inorder_arr[self.pointer]
-            self.pointer += 1
-            return val
+            return self.inorder_arr[self.pointer]
         return
             
     def hasNext(self) -> bool:
-        if len(self.inorder_arr) > self.pointer:
+        if len(self.inorder_arr) > self.pointer + 1:
             return True
         else:
             return False
